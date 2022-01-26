@@ -5,7 +5,10 @@ import Dashoboard from '../pages/Dashboard';
 const AppStack = createNativeStackNavigator();
 
 const AppRoutes: React.FC = () => (
-  <AppStack.Navigator>
+  <AppStack.Navigator
+    screenOptions={{
+      headerShown: false,
+    }}>
     <AppStack.Screen name="Dashboard" component={Dashoboard} />
   </AppStack.Navigator>
 );

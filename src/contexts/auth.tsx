@@ -1,4 +1,6 @@
-import React, {createContext, useState} from 'react';
+import React, {createContext, useContext, useState} from 'react';
+import {StyleSheet, View} from 'react-native';
+import {Text} from 'react-native-sb-chiper';
 import {ISignIn, signInService} from '../services/auth';
 
 export interface IAuthContextData {
@@ -10,12 +12,24 @@ export interface IAuthContextData {
 
 const AuthContext = createContext<IAuthContextData>({} as IAuthContextData);
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 16,
+  },
+});
+
 export const AuthProvider: React.FC = ({children}) => {
   const [user, setUser] = useState<ISignIn['user']>(null);
+  const [loading, setLoading] = useState(false);
 
   const signIn = async () => {
-    const {user: respUser} = await signInService();
-    setUser(respUser);
+    setLoading(true);
+    const {user: signedUser} = await signInService();
+    setUser(signedUser);
+    setLoading(false);
   };
 
   const signOut = () => {
@@ -24,9 +38,17 @@ export const AuthProvider: React.FC = ({children}) => {
 
   return (
     <AuthContext.Provider value={{signed: !!user, user, signIn, signOut}}>
-      {children}
+      {!loading ? (
+        children
+      ) : (
+        <View style={styles.container}>
+          <Text color="green">Loading...</Text>
+        </View>
+      )}
     </AuthContext.Provider>
   );
 };
 
-export default AuthContext;
+const useAuth = () => useContext(AuthContext);
+
+export default useAuth;

@@ -1,8 +1,8 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {Button} from 'react-native-sb-chiper';
 import {View, StyleSheet} from 'react-native';
 import debounce from 'lodash/debounce';
-import AuthContext from '../../contexts/auth';
+import useAuth from '../../contexts/auth';
 
 const styles = StyleSheet.create({
   container: {
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
 });
 
 const SignIn: React.FC = () => {
-  const {signIn: handleSignIn} = useContext(AuthContext);
+  const {signIn: handleSignIn} = useAuth();
 
   return (
     <View style={styles.container}>

@@ -1,7 +1,7 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {Button} from 'react-native-sb-chiper';
 import {View, StyleSheet} from 'react-native';
-import AuthContext from '../../contexts/auth';
+import useAuth from '../../contexts/auth';
 
 const styles = StyleSheet.create({
   container: {
@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
 });
 
 const Dashboard: React.FC = () => {
-  const {signOut} = useContext(AuthContext);
+  const {signOut} = useAuth();
 
   return (
     <View style={styles.container}>
