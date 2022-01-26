@@ -5,7 +5,7 @@ export interface IUser {
 
 export interface ISignIn {
   token: string;
-  user: IUser;
+  user: IUser | null;
 }
 
 export function signInService() {
