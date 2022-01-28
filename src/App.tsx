@@ -1,19 +1,15 @@
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {ThemeProvider} from 'react-native-sb-chiper';
-import {AuthProvider} from './contexts/auth';
-import Routes from './routes';
+import {StyleSheet, View} from 'react-native';
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#f9f',
+  },
+});
 
 const App: React.FC = () => {
-  return (
-    <ThemeProvider>
-      <NavigationContainer>
-        <AuthProvider>
-          <Routes />
-        </AuthProvider>
-      </NavigationContainer>
-    </ThemeProvider>
-  );
+  return <View style={styles.container} />;
 };
 
 export default App;
