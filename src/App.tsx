@@ -1,15 +1,15 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f9f',
-  },
-});
+import {StatusBar} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import Routes from './routes';
 
 const App: React.FC = () => {
-  return <View style={styles.container} />;
+  return (
+    <NavigationContainer>
+      <StatusBar barStyle="light-content" />
+      <Routes />
+    </NavigationContainer>
+  );
 };
 
 export default App;
