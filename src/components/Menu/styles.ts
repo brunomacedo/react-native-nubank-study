@@ -26,6 +26,21 @@ const TabStyles = StyleSheet.create({
     color: colors.white,
     marginLeft: 10,
   },
+  button: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 3,
+    borderWidth: 1,
+    borderColor: colors.white,
+    backgroundColor: `${String(colors.white)}20`,
+    padding: 8,
+    marginTop: 16,
+  },
+  buttonText: {
+    color: colors.white,
+    textTransform: 'uppercase',
+    fontSize: 16,
+  },
 });
 
 export default TabStyles;

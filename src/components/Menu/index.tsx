@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView, Text, View} from 'react-native';
+import {ScrollView, Text, TouchableOpacity, View} from 'react-native';
 import {MenuItems} from '../../services/menu.services';
 import MenuStyles from './styles';
 
@@ -15,6 +15,11 @@ const Menu: React.FC = () => {
             </Text>
           </View>
         ))}
+        <TouchableOpacity
+          style={MenuStyles.button}
+          onPress={() => console.warn('Sign out')}>
+          <Text style={MenuStyles.buttonText}>Sair</Text>
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );
