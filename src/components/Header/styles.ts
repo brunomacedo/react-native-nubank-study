@@ -10,7 +10,6 @@ const HeaderStyles = StyleSheet.create({
     color: colors.white,
     fontSize: 42,
     fontWeight: '500',
-    lineHeight: 0,
     marginTop: 10,
   },
 });
