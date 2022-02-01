@@ -1,20 +1,13 @@
 import React from 'react';
-import {StatusBar, StyleSheet} from 'react-native';
+import {StatusBar} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {NavigationContainer} from '@react-navigation/native';
 import Routes from './routes';
-import {colors} from './theme/styles';
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.green,
-  },
-});
+import styles from './theme/styles';
 
 const App: React.FC = () => {
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.safearea}>
       <NavigationContainer>
         <StatusBar barStyle="light-content" />
         <Routes />
