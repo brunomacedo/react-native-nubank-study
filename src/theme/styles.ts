@@ -1,4 +1,4 @@
-import {ColorValue, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 
 type TColorsList =
   | 'bleu'
@@ -6,17 +6,18 @@ type TColorsList =
   | 'bright-yellow'
   | 'dark-blue'
   | 'ghost-white'
-  | 'green'
   | 'gray-100'
   | 'gray-200'
+  | 'gray-25'
   | 'gray-300'
+  | 'green'
   | 'jeans'
   | 'philippine'
   | 'white'
   | 'yankees';
 
 type TColors = {
-  [key in TColorsList]?: ColorValue;
+  [key in TColorsList]?: string;
 };
 
 export const colors: TColors = {
@@ -28,6 +29,7 @@ export const colors: TColors = {
   green: '#00D27C',
   'gray-100': '#C6C9D8',
   'gray-200': '#A2A6BD',
+  'gray-25': '#EBEDF1',
   'gray-300': '#8084A2',
   jeans: '#56B0F3',
   philippine: '#01834E',
@@ -35,13 +37,21 @@ export const colors: TColors = {
   yankees: '#2B2845',
 };
 
+export const primary = colors.brand;
+
 const styles = StyleSheet.create({
-  scroll: {
-    backgroundColor: colors.green,
+  primary: {
+    backgroundColor: primary,
+    color: colors.white,
+  },
+  safearea: {
+    flex: 1,
+    backgroundColor: primary,
   },
   container: {
     flex: 1,
-    // padding: 16,
+    backgroundColor: primary,
+    justifyContent: 'center',
   },
   tinyLogo: {
     width: 120,
