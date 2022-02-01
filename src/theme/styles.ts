@@ -36,9 +36,16 @@ export const colors: TColors = {
 };
 
 const styles = StyleSheet.create({
+  scroll: {
+    backgroundColor: colors.green,
+  },
   container: {
     flex: 1,
-    backgroundColor: colors.green,
+    // padding: 16,
+  },
+  tinyLogo: {
+    width: 120,
+    height: 45,
   },
 });
 
