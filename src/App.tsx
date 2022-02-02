@@ -3,8 +3,11 @@ import {StatusBar} from 'react-native';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {NavigationContainer} from '@react-navigation/native';
+import disableAppLogs from './utils/logs';
 import Routes from './routes';
 import styles from './theme/styles';
+
+disableAppLogs();
 
 const App: React.FC = () => {
   return (
