@@ -1,11 +1,22 @@
 import React from 'react';
-import {ScrollView, Text, TouchableOpacity, View} from 'react-native';
+import {Animated, Text, TouchableOpacity, View} from 'react-native';
 import {MenuItems} from '../../services/menu.services';
 import MenuStyles from './styles';
 
-const Menu: React.FC = () => {
+interface IProps {
+  translateY: Animated.Value;
+}
+
+const Menu: React.FC<IProps> = ({translateY}) => {
   return (
-    <ScrollView contentContainerStyle={MenuStyles.container}>
+    <Animated.ScrollView
+      contentContainerStyle={MenuStyles.container}
+      style={{
+        opacity: translateY.interpolate({
+          inputRange: [0, 150],
+          outputRange: [0, 1],
+        }),
+      }}>
       <View style={MenuStyles.nav}>
         {MenuItems.map(item => (
           <View key={item.key} style={MenuStyles.navItem}>
@@ -21,7 +32,7 @@ const Menu: React.FC = () => {
           <Text style={MenuStyles.buttonText}>Sair</Text>
         </TouchableOpacity>
       </View>
-    </ScrollView>
+    </Animated.ScrollView>
   );
 };
 

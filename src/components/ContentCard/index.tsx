@@ -6,7 +6,7 @@ import {primary} from '../../theme/styles';
 
 const ContentCard: React.FC = () => {
   return (
-    <View style={ContentCardStyles.card}>
+    <>
       <View style={ContentCardStyles.cardHeader}>
         <CurrencyDollar size={32} color={primary} />
         <Eye size={32} color={primary} />
@@ -27,7 +27,7 @@ const ContentCard: React.FC = () => {
           totam rem aperiam a saepe odio vel
         </Text>
       </View>
-    </View>
+    </>
   );
 };
 
